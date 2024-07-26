@@ -1,0 +1,32 @@
+﻿@model RingoMediaReminder.Models.Reminders.ReminderViewModel
+
+@{
+    ViewData["Title"] = "Edit Reminder";
+}
+
+<h1>Edit Reminder</h1>
+
+<h4>Reminder</h4>
+<hr />
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ReminderDateTime" class="control-label"></label>
+        <input asp-for="ReminderDateTime" class="form-control" type="datetime-local" />
+        <span asp-validation-for="ReminderDateTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Emails" class="control-label"></label>
+        <input asp-for="Emails" class="form-control" placeholder="Enter emails separated by commas" />
+        <span asp-validation-for="Emails" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>

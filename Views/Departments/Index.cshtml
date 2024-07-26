@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Department>
+
+<h1>Departments</h1>
+
+<div>
+    <a href="@Url.Action("Create")" class="btn btn-primary mb-3">Create New Department</a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Logo</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var department in Model)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details", new { id = department.Id })">@department.Name</a>
+                </td>
+                <td>
+                    @if (!string.IsNullOrEmpty(department.Logo))
+                    {
+                        <img src="@department.Logo" alt="@department.Name Logo" style="max-width: 100px; max-height: 100px;" />
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = department.Id })" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = department.Id })" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
